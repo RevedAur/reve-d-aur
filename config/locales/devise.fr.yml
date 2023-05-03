@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "Votre adresse mail a été confirmée"
+      send_instructions: "Vous allez recevoir un mail de confirmation dans quelques minutes"
+      send_paranoid_instructions: "Si votre adresse mail existe chez nous, vous allez recevoir un mail"
+    failure:
+      already_authenticated: "Vous êtes déjà connecté"
+      inactive: "Votre compte n'a pas été activé"
+      invalid: "Invalid %{authentication_keys} ou mot de passe"
+      locked: "Votre compte est bloqué"
+      last_attempt: "Il ne vous reste plus qu'une tentative avant de bloquer votre compte"
+      not_found_in_database: "Invalid %{authentication_keys} ou mot de passe"
+      timeout: "Votre session a expirée, merci de vous reconnecter"
+      unauthenticated: "Vous devez être connecté pour continuer"
+      unconfirmed: "Vous devez confirmer votre mail pour continuer"
+    mailer:
+      confirmation_instructions:
+        subject: "Informations de confirmation"
+      reset_password_instructions:
+        subject: "Insctruction de réinitialisation de mot de passe"
+      unlock_instructions:
+        subject: "Insctruction pour débloquer le compte"
+      email_changed:
+        subject: "Mail changé"
+      password_change:
+        subject: "Mot de passe changé"
+    omniauth_callbacks:
+      failure: 'Impossible de se connecter depuis %{kind} car "%{reason}".'
+      success: "Vous êtes bien connecté à %{kind}."
+    passwords:
+      no_token: "Vous ne pouvez vous connecter depuis le lien que vous venez d'utiliser, merci de vérifier le lien URL."
+      send_instructions: "Vous allez recevoir un mail dans quelques minutes."
+      send_paranoid_instructions: "Si votre adresse mail existe, vous allez recevoir un mail dans quelques minutes."
+      updated: "Votre mot de passe a bien été changé, vous êtes connecté"
+      updated_not_active: "Votre mot de passe a bien été changé"
+    registrations:
+      destroyed: "Votre compte a bien été supprimé"
+      signed_up: "Bienvenu, vous êtes connecté"
+      signed_up_but_inactive: "Votre compte n'a pas encore été activé"
+      signed_up_but_locked: "Votre compte est bloqué"
+      signed_up_but_unconfirmed: "Vous allez recevoir un mail de confirmation, merci de vous rendre dans votre boite mail."
+      update_needs_confirmation: "Merci de vérifier votre nouvelle adresse mail"
+      updated: "Votre compte a été mis à jour"
+      updated_but_not_signed_in: "Votre compte a bien été mis à jour, merci de vous reconnecter"
+    sessions:
+      signed_in: "Vous êtes connecté"
+      signed_out: "Vous êtes déconnecté"
+      already_signed_out: "Vous êtes déconnecté."
+    unlocks:
+      send_instructions: "Vous allez recevoir des instructions par mail dans quelques instants."
+      send_paranoid_instructions: "Si votre compte éxiste, vous allez recevoir un mail dans quelques instants."
+      unlocked: "Votre compte est débloqué, vous pouvez vous connecter"
+  errors:
+    messages:
+      already_confirmed: "Les compte est déjà confirmé, vous pouvez vous connecter"
+      confirmation_period_expired: "Vous aviez %{period} pour confirmer le compte, merci d'en créer un nouveau"
+      expired: "a expiré, merci d'en créer un nouveau"
+      not_found: "non trouvé"
+      not_locked: "non bloqué"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

@@ -1,0 +1,10 @@
+<%= form_with model: @legal_document, url: legal_document_path do |f| %>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.rich_text_area :content, value: @legal_document.content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Valider" %>
+  </div>
+<% end %>

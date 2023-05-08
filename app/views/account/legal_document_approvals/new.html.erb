@@ -1,0 +1,14 @@
+<%= @new_legal_document_approval.content %>
+<br><br>
+<div class='vertical-centered'>
+  <%= form_with url: account_legal_document_approvals_path do |f| %>
+    <div>
+    <%= f.check_box :sign %>
+    <%= f.label :sign, "J'ai lu et j'accepte les conditons ci-dessus" %>
+    </div>
+    <br>
+    <div><center>
+    <%= f.submit 'Accepter' %>
+    </center></div>
+  <% end %>
+</div>

@@ -18,4 +18,8 @@ class Article < ApplicationRecord
 
   scope :by_status, ->(status) { where(status: status) if status.present? }
   scope :by_categories, ->(category) { joins(:categories).where(categories: { name: category }) }
+
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :price, numericality: { greater_than: 0 }
 end

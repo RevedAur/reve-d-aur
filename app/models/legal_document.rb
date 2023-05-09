@@ -10,6 +10,7 @@ class LegalDocument < ApplicationRecord
   }
 
   validate :online_date
+  validate :nature_uniqueness
   validate :when_online
 
   before_create :create_version
@@ -37,5 +38,12 @@ class LegalDocument < ApplicationRecord
     return if online_at >= DateTime.now.to_date
 
     errors.add(:online_at, "La date de mise en ligne doit être supérieur à aujourd'hui")
+  end
+
+  def nature_uniqueness
+    return unless online
+    return if LegalDocument.send(nature).where(online: true).where.not(id: id).count < 1
+
+    errors.add(:nature, 'Il ne peut y avoir 2 documents de même nature en ligne')
   end
 end

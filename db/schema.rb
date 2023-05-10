@@ -93,18 +93,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "legal_document_approvals", force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-09 09:07:39", null: false
+  create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "approved_at", default: "2023-05-10 10:51:29", null: false
     t.uuid "user_id", null: false
-    t.bigint "legal_document_id", null: false
+    t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["legal_document_id"], name: "index_legal_document_approvals_on_legal_document_id"
     t.index ["user_id"], name: "index_legal_document_approvals_on_user_id"
   end
 
-  create_table "legal_documents", force: :cascade do |t|
-    t.string "content"
+  create_table "legal_documents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "online", default: false, null: false
     t.datetime "online_at"
     t.integer "version", null: false

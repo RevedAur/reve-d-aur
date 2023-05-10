@@ -1,8 +1,8 @@
 class LegalDocument < ApplicationRecord
+  has_rich_text :content
+
   has_many :legal_document_approvals
   has_many :users, through: :legal_document_approvals
-
-  has_rich_text :content
 
   enum nature: {
     cgv: 0,

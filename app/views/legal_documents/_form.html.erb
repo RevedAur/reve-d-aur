@@ -1,7 +1,13 @@
-<%= form_with model: @legal_document, url: legal_document_path do |f| %>
+<%= form_with model: @new_legal_document, url: legal_documents_path, method: :post do |f| %>
+
+  <div class="field">
+    <%= f.label :nature %>
+    <%= f.select :nature, LegalDocument.natures.keys %>
+  </div>
+
   <div class="field">
     <%= f.label :content %>
-    <%= f.rich_text_area :content, value: @legal_document.content %>
+    <%= f.rich_text_area :content %>
   </div>
 
   <div class="actions">

@@ -2,16 +2,14 @@
 
 module NewLegalDocument
   class Document
-    attr_accessor :document, :nature, :content
+    attr_accessor :document
 
-    def initialize(document, content)
+    def initialize(document)
       @document = document
-      @nature = document.nature
-      @content = content
     end
 
     def perform
-      change_previous_legal_document_status
+      change_previous_legal_document_status if editing_document
       create_new_legal_document
     end
 
@@ -22,16 +20,16 @@ module NewLegalDocument
     end
 
     def create_new_legal_document
-      LegalDocument.create!(
-        online: true,
-        online_at: DateTime.now,
-        nature: nature,
-        content: content,
-      )
+      document.assign_attributes(online: true, online_at: DateTime.now)
+      document.save!
     end
 
     def old_legal_document
-      @old_legal_document ||= LegalDocument.where(nature: @nature).find_by(online: true)
+      @old_legal_document ||= LegalDocument.where(nature: document.nature).find_by(online: true)
+    end
+
+    def editing_document
+      LegalDocument.find_by(nature: document.nature)
     end
   end
 end

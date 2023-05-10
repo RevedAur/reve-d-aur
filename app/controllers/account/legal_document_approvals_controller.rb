@@ -11,11 +11,9 @@ module Account
     def create
       legal_document_approval = LegalDocumentApproval.new(
         user: current_user,
-        legal_document: documents_to_sign.first,
-        approved_at: DateTime.now,
+        legal_document: documents_to_sign.first
       )
-      if params[:sign] == "1"
-        legal_document_approval.save
+      if params[:sign] == "1" && legal_document_approval.save
         flash[:notice] = "Le document a bien été signé."
         redirect_to account_profiles_path
       else

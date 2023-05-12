@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     resource :profiles, only: %i[show edit update]
   end
 
+  namespace :admin do
+    resources :articles
+    resources :categories
+  end
+  
   resources :legal_documents
 end

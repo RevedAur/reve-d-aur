@@ -1,0 +1,19 @@
+<div>
+  <%= @article.title %>
+</div>
+<div>
+  <%= @article.description %>
+</div>
+<div>
+  <%= @article.price %>
+</div>
+<% @article.categories.each do |category| %>
+  <div>
+    <%= category.name %>
+  </div>
+<% end %>
+<div>
+  <% (0...@article.images.count).each do |image| %>
+    <%= image_tag(@article.images[image].variant(:thumb)) %>
+  <% end %>
+</div>

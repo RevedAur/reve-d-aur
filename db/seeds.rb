@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+10.times do |i|
+  User.create!(
+    email: "user#{i}@yopmail.com",
+    password: "password",
+    password_confirmation: "password",
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    phone_number1: FFaker::PhoneNumber.phone_number
+  )
+end
+
+10.times do |i|
+  Category.create!(
+    name: "categorie#{i}"
+  )
+  
+end
+
+10.times do |i|
+  Article.create!(
+    title: FFaker::Book.title,
+    description: FFaker::Book.description,
+    price: rand(1..100),
+    delivery_price: rand(1..100),
+    status: Article.statuses.keys.sample
+  )
+end

@@ -1,0 +1,7 @@
+fr:
+  article:
+    activerecord:
+      attributes:
+        draft: Pas en ligne
+        online: En ligne
+        deleted: supprimé

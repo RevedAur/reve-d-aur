@@ -63,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
 
   create_table "articles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
-    t.string "description"
     t.integer "price", null: false
     t.integer "delivery_price", null: false
     t.integer "status", default: 0, null: false
@@ -94,7 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
   end
 
   create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-10 10:51:29", null: false
+    t.datetime "approved_at", default: "2023-05-11 07:24:03", null: false
     t.uuid "user_id", null: false
     t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false

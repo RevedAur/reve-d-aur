@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LegalDocumentsController < ApplicationController
   before_action :legal_document, only: %i[show edit update]
 

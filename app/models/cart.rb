@@ -6,6 +6,6 @@ class Cart < ApplicationRecord
   private
 
   def total_price
-    articles.sum { &:price }
+    articles.sum(&:price)
   end
 end

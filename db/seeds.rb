@@ -17,6 +17,10 @@
   )
 end
 
+Size.names.keys.each { |size| Size.create!(name: size) }
+
+Color.names.keys.each { |color| Color.create!(name: color) }
+
 10.times do |i|
   Category.create!(
     name: "categorie#{i}"
@@ -27,6 +31,7 @@ end
 10.times do |i|
   Article.create!(
     title: FFaker::Book.title,
+    reference: FFaker::PhoneNumber.imei,
     description: FFaker::Book.description,
     price: rand(1..100),
     delivery_price: rand(1..100),

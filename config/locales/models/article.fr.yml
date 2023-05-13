@@ -3,5 +3,7 @@ fr:
     activerecord:
       attributes:
         draft: Pas en ligne
-        online: En ligne
-        deleted: supprimé
+        online: en ligne
+        temporary_out_of_stock: Rupture temporaire
+        out_of_stock: En rupture de stock
+        deleted: Supprimé

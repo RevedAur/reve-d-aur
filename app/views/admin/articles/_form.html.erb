@@ -5,6 +5,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :reference %>
+    <%= f.text_field :reference %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
   </div>
@@ -12,6 +17,16 @@
   <div class="field">
     <%= f.label :category_ids %>
     <%= f.collection_select :category_ids, Category.all, :id, :name, {}, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color_id %>
+    <%= f.collection_select :color_ids, Color.all, :id, :name, {}, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size_id %>
+    <%= f.collection_select :size_ids, Size.all, :id, :name, {}, multiple: true %>
   </div>
 
   <div class="field">

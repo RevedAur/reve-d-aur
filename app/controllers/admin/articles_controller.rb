@@ -19,7 +19,7 @@ module Admin
         flash[:notice] = 'Article was successfully created'
         redirect_to admin_articles_path
       else
-        flash.now[:error] = "An error has occurred"
+        flash.now[:alert] = "An error has occurred"
         render :new, status: :unprocessable_entity
       end
     end
@@ -39,7 +39,8 @@ module Admin
     private
 
     def article_params
-      params.require(:article).permit(:title, :description, :status, :price, :delivery_price, :category_ids => [], :images => [])
+      params.require(:article)
+        .permit(:title, :reference, :description, :status, :price, :delivery_price, :category_ids => [], :color_ids => [], :size_ids => [], :images => [])
     end
 
     def set_article

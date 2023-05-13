@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,8 +61,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
     t.index ["category_id"], name: "index_article_categories_on_category_id"
   end
 
+  create_table "article_colors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "article_id", null: false
+    t.uuid "color_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_colors_on_article_id"
+    t.index ["color_id"], name: "index_article_colors_on_color_id"
+  end
+
+  create_table "article_sizes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "article_id", null: false
+    t.uuid "size_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_sizes_on_article_id"
+    t.index ["size_id"], name: "index_article_sizes_on_size_id"
+  end
+
   create_table "articles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
+    t.string "reference"
     t.integer "price", null: false
     t.integer "delivery_price", null: false
     t.integer "status", default: 0, null: false
@@ -92,8 +111,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "colors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "name", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-11 07:24:03", null: false
+    t.datetime "approved_at", default: "2023-05-13 10:20:06", null: false
     t.uuid "user_id", null: false
     t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false
@@ -142,6 +167,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
+  create_table "sizes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "name", default: 3, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -173,6 +204,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_073737) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
+  add_foreign_key "article_colors", "articles"
+  add_foreign_key "article_colors", "colors"
+  add_foreign_key "article_sizes", "articles"
+  add_foreign_key "article_sizes", "sizes"
   add_foreign_key "cart_articles", "articles"
   add_foreign_key "cart_articles", "carts"
   add_foreign_key "carts", "users"

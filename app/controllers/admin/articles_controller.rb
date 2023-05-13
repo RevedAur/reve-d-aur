@@ -25,12 +25,24 @@ module Admin
     end
 
     def show
+      @article_colors = Color.where(id: @article.colors.select(:color_id))
+      @article_sizes = Size.where(id: @article.sizes.select(:size_id))
+      @article_categories = Category.where(id: @article.categories.select(:category_id))
     end
 
     def edit
     end
 
     def update
+      @article.assign_attributes(article_params)
+
+      if @article.save
+        flash[:notice] = 'Article was successfully updated'
+        redirect_to admin_articles_path
+      else
+        flash.now[:alert] = "An error has occurred"
+        render :edit, status: :unprocessable_entity
+      end
     end
 
     def destroy

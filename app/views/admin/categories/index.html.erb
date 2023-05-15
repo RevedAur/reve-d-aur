@@ -1,0 +1,9 @@
+<div class='space-between-row'>
+  <div>
+    <% @categories.each do |category| %>
+      <div> <%= link_to category.name, admin_category_path(category) %> </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Ajouter une catégorie', new_admin_category_path %>

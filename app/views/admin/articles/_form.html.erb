@@ -1,0 +1,55 @@
+<%= form_with model: @article, url: admin_articles_path do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reference %>
+    <%= f.text_field :reference %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.rich_text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_ids %>
+    <%= f.collection_select :category_ids, Category.all, :id, :name, {}, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color_id %>
+    <%= f.collection_select :color_ids, Color.all, :id, :name, {}, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size_id %>
+    <%= f.collection_select :size_ids, Size.all, :id, :name, {}, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, Article.statuses.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_price %>
+    <%= f.number_field :delivery_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Valider" %>
+  </div>
+<% end %>

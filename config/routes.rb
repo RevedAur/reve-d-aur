@@ -7,5 +7,15 @@ Rails.application.routes.draw do
     resource :profiles, only: %i[show edit update]
   end
 
-  resources :legal_documents
+  namespace :admin do
+    get '/', controller: 'home', action: 'index'
+    resources :articles
+    resources :article_sizes, only: %i[destroy update]
+    resources :article_colors, only: %i[destroy]
+    resources :article_categories, only: %i[destroy]
+    resources :categories
+    resources :legal_documents
+  end
+  
+  resources :legal_documents, only: %i[index show]
 end

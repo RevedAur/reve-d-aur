@@ -1,3 +1,5 @@
 <% @articles.each do |article| %>
   <%= link_to article.title, admin_article_path(article) %>
 <% end %>
+
+<%= link_to 'ajouter un article', new_admin_article_path %>

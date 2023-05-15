@@ -1,0 +1,10 @@
+<h3> <%= @legal_document.nature %></h3>
+<%= link_to 'modifier', edit_admin_legal_document_path(@legal_document) %>
+
+<div>
+  <%= render @legal_document %>
+</div>
+<br>
+<div>
+  <%= @legal_document.content %>
+</div>

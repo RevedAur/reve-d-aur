@@ -5,8 +5,9 @@
   <%= @article.description %>
 </div>
 <div>
-  <%= @article.price %>
+  Prix : <%= @article.price %>
 </div>
+
 <% @article.categories.each do |category| %>
   <div>
     <%= category.name %>
@@ -16,6 +17,7 @@
   <% (0...@article.images.count).each do |image| %>
     <%= image_tag(@article.images[image].variant(:thumb)) %>
   <% end %>
+  <br>
 </div>
 
   <div>
@@ -24,13 +26,18 @@
         <%= button_to color.name, admin_article_color_path(color, article: @article), method: :delete %>
       </div>
     <% end %>
+  <br>
   </div>
 
   <div>
     <% @article_sizes.each do |size| %>
       <div>
         <%= button_to size.name, admin_article_size_path(size, article: @article), method: :delete %>
+        <%= form_with url: admin_article_size_path(article_size(@article, size)), method: :patch do |f| %>
+          Nombre en stock : <%= f.number_field :number, value: article_size(@article, size).number %>
+        <% end %>
       </div>
+      <br>
     <% end %>
   </div>
 

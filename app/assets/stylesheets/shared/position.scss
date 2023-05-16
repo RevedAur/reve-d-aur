@@ -1,5 +1,5 @@
 .vh-100 {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .w-50 {
@@ -20,6 +20,10 @@
 
 .mb-150 {
   margin-bottom: 150px;
+}
+
+.mb-75 {
+  margin-bottom: 75px;
 }
 
 .pt-10 {

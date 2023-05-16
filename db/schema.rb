@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
   end
 
   create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-15 07:17:51", null: false
+    t.datetime "approved_at", default: "2023-05-15 09:53:56", null: false
     t.uuid "user_id", null: false
     t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false
@@ -169,6 +169,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
+  create_table "professionals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "siret", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_professionals_on_user_id"
+  end
+
   create_table "sizes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "name", default: 3, null: false
     t.datetime "created_at", null: false
@@ -186,13 +195,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.integer "level", default: 0
+    t.boolean "is_admin", default: false, null: false
+    t.boolean "is_professional", default: false, null: false
     t.boolean "deleted", default: false, null: false
     t.boolean "deleted_by_admin", default: false, null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "pseudo"
-    t.string "phone_number1"
-    t.string "phone_number2"
+    t.date "birth_date"
+    t.string "phone_number"
     t.date "last_activity_on"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -220,4 +230,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_101337) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "users"
+  add_foreign_key "professionals", "users"
 end

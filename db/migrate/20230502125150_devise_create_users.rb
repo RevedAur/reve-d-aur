@@ -34,17 +34,17 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       # Status
       t.integer :level, default: 0
+      t.boolean :is_admin, null: false, default: false
       t.boolean :deleted, null: false, default: false
       t.boolean :deleted_by_admin, null: false, default: false
 
       # Personal information
       t.string :first_name
       t.string :last_name
-      t.string :pseudo
+      t.date :birth_date
 
       # Phone numbers
-      t.string :phone_number1
-      t.string :phone_number2
+      t.string :phone_number
 
       t.date :last_activity_on
       t.datetime :deleted_at

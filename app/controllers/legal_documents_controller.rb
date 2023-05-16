@@ -8,6 +8,4 @@ class LegalDocumentsController < ApplicationController
   def show
     @legal_document ||= LegalDocument.find(params[:id])
   end
-
-  private
 end

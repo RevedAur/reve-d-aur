@@ -1,0 +1,46 @@
+<%= form_with model: current_user, url: account_profiles_path, method: :patch do |f| %>
+
+  <% if current_user.errors.any? %>
+    <% current_user.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name, value:'Prénom' %><br />
+    <%= f.text_field :first_name, autofocus: true, class:'form-control', value: current_user.first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, value:'Nom' %><br />
+    <%= f.text_field :last_name, autofocus: true, class:'form-control', value: current_user.last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number, value:'Numéro de téléphone' %><br />
+    <%= f.text_field :phone_number, autofocus: true, class:'form-control', value: current_user.phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birth_date, value:'Date de naissance' %><br />
+    <%= f.date_select :birth_date, class:'form-control', value: current_user.birth_date  %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: current_user.email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(Obligatoire pour modifier vos informations)</i><br />
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Mise à jour" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>

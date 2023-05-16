@@ -17,26 +17,23 @@ module Admin
       new_legal_document.assign_attributes(online: true, online_at: DateTime.now)
 
       if new_legal_document.save
-        flash[:notice] = "Nouveau document créé"
-        redirect_to admin_legal_documents_path
-      else
-        flash[:error] = new_legal_document.errors.messages if new_legal_document.errors.messages.any?
-        redirect_to admin_legal_documents_path
+        flash[:notice] = 'Nouveau document créé'
+      elsif new_legal_document.errors.messages.any?
+        flash[:error] = new_legal_document.errors.messages
       end
+      redirect_to admin_legal_documents_path
     end
 
-    def show
-    end
+    def show; end
 
-    def edit
-    end
+    def edit; end
 
     def update
       new_legal_document = LegalDocument.new
       new_legal_document.assign_attributes(legal_document_params)
       ::LegalDocumentService::EditingDocument.new(new_legal_document).perform
 
-      flash[:notice] = "Document modifié"
+      flash[:notice] = 'Document modifié'
       redirect_to admin_legal_documents_path
     end
 

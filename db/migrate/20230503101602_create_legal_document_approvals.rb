@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateLegalDocumentApprovals < ActiveRecord::Migration[7.0]
   def change
     create_table :legal_document_approvals, id: :uuid do |t|

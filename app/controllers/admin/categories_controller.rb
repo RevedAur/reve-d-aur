@@ -19,16 +19,14 @@ module Admin
         flash[:notice] = 'La catégorie a été créé avec succès'
         redirect_to admin_categories_path
       else
-        flash.now[:error] = "Un problème est survenu"
+        flash.now[:error] = 'Un problème est survenu'
         render :new, status: :unprocessable_entity
       end
     end
 
-    def show
-    end
+    def show; end
 
-    def edit
-    end
+    def edit; end
 
     def update
       @category.assign_attributes(category_params)
@@ -37,13 +35,12 @@ module Admin
         flash[:notice] = 'La catégorie a été modifié avec succès'
         redirect_to admin_categories_path
       else
-        flash.now[:error] = "Un problème est survenu"
+        flash.now[:error] = 'Un problème est survenu'
         render :edit, status: :unprocessable_entity
       end
     end
 
-    def destroy
-    end
+    def destroy; end
 
     private
 

@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe LegalDocumentApproval, type: :model do
   let(:legal_document_approval) { build(:legal_document_approval) }

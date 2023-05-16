@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe ::LegalDocumentService::EditingDocument, type: :service do
   let!(:legal_document) { create(:legal_document, nature: 'cgu') }

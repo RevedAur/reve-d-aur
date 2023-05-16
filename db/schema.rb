@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
   end
 
   create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-15 09:53:56", null: false
+    t.datetime "approved_at", default: "2023-05-16 15:18:56", null: false
     t.uuid "user_id", null: false
     t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false
@@ -196,7 +196,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
     t.string "unconfirmed_email"
     t.integer "level", default: 0
     t.boolean "is_admin", default: false, null: false
-    t.boolean "is_professional", default: false, null: false
     t.boolean "deleted", default: false, null: false
     t.boolean "deleted_by_admin", default: false, null: false
     t.string "first_name"

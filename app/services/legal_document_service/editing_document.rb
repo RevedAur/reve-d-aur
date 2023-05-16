@@ -31,6 +31,5 @@ module LegalDocumentService
     def old_legal_document
       @old_legal_document ||= LegalDocument.where(nature: document.nature).find_by(online: true)
     end
-
   end
 end

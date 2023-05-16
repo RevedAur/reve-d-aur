@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateArticleSizes < ActiveRecord::Migration[7.0]
   def change
     create_table :article_sizes, id: :uuid do |t|

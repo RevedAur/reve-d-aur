@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 module Account
   class ProfilesController < Account::BaseController
-    def show
-    end
+    def show; end
 
-    def edit
-    end
+    def edit; end
 
     def update
       current_user.assign_attributes(user_params)

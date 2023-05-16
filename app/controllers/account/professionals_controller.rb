@@ -4,8 +4,7 @@ module Account
   class ProfessionalsController < Account::BaseController
     before_action :set_professional_acount, only: %i[new edit update]
 
-    def new
-    end
+    def new; end
 
     def create
       @professional_account = current_user.build_professional(professional_params)
@@ -18,8 +17,7 @@ module Account
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       @professional_account.assign_attributes(professional_params)

@@ -6,6 +6,6 @@ class LegalDocumentsController < ApplicationController
   end
 
   def show
-    @legal_document ||= LegalDocument.find(params[:id])
+    @legal_document = LegalDocument.find(params[:id])
   end
 end

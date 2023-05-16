@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :legal_document_approvals, only: %i[new create]
-    resource :profiles, only: %i[show edit update]
+    resource :profiles, only: %i[show edit update destroy]
+    resource :professionals, only: %i[new create edit update]
   end
 
   namespace :admin do
@@ -16,6 +17,6 @@ Rails.application.routes.draw do
     resources :categories
     resources :legal_documents
   end
-  
+
   resources :legal_documents, only: %i[index show]
 end

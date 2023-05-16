@@ -1,12 +1,21 @@
+<% unless current_user.confirmed? %>
+  <div>Votre compte n'est pas validé</div>
+<% end %>
+
 <%= current_user.email %>
 <br>
 Mon caddie
 <br>
 Favoris
 <br>
-Modifier mes informations (Nom / Prenom / adresse / téléphone)
+<%= link_to 'Modifier votre compte', edit_account_profiles_path %>
 <br>
 Mes achats
 <br>
 Retourner un produit
 <br>
+<%= link_to 'Information professionnel', is_professional ? edit_account_professionals_path : new_account_professionals_path %>
+<br>
+<h3>Supprimer votre compte ?</h3>
+
+<div><%= button_to "Supprimer", account_profiles_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>

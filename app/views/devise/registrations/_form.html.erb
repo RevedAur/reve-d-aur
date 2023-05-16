@@ -3,6 +3,28 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
+      <%= f.label :first_name, value:'Prénom' %><br />
+      <%= f.text_field :first_name, autofocus: true, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name, value:'Nom' %><br />
+      <%= f.text_field :last_name, autofocus: true, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number, value:'Numéro de téléphone' %><br />
+      <%= f.text_field :phone_number, autofocus: true, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :birth_date, value:'Date de naissance' %><br />
+      <%= f.date_select :birth_date, class:'form-control'  %>
+    </div>
+
+    <br>
+
+    <div class="field">
       <%= f.label :email, value:'Adresse Mail' %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
     </div>

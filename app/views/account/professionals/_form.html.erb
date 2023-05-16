@@ -1,0 +1,15 @@
+<%= form_with model: @professional_account, url: account_professionals_path do |f| %>
+  <% if @professional_account.errors.any? %>
+    <% @professional_account.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @professional_account.name %>
+
+  <%= f.label :siret %>
+  <%= f.text_field :siret, value: @professional_account.siret %>
+
+  <%= f.submit 'Valider' %>
+<% end %>

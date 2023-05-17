@@ -19,7 +19,7 @@ module Admin
         flash[:notice] = 'Article was successfully created'
         redirect_to admin_articles_path
       else
-        flash.now[:alert] = "An error has occurred"
+        flash.now[:alert] = 'An error has occurred'
         render :new, status: :unprocessable_entity
       end
     end
@@ -30,8 +30,7 @@ module Admin
       @article_categories = Category.where(id: @article.categories.select(:category_id))
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       @article.assign_attributes(article_params)
@@ -40,19 +39,18 @@ module Admin
         flash[:notice] = 'Article was successfully updated'
         redirect_to admin_articles_path
       else
-        flash.now[:alert] = "An error has occurred"
+        flash.now[:alert] = 'An error has occurred'
         render :edit, status: :unprocessable_entity
       end
     end
 
-    def destroy
-    end
+    def destroy; end
 
     private
 
     def article_params
       params.require(:article)
-        .permit(:title, :reference, :description, :status, :price, :delivery_price, :category_ids => [], :color_ids => [], :size_ids => [], :images => [])
+            .permit(:title, :reference, :description, :status, :price, :delivery_price, category_ids: [], color_ids: [], size_ids: [], images: [])
     end
 
     def set_article

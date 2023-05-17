@@ -3,9 +3,9 @@
 class Article < ApplicationRecord
   has_rich_text :description
 
-  has_many_attached :images  do |attachable|
-    attachable.variant :thumb, resize: "100x100"
-    attachable.variant :medium, resize: "300x300", monochrome: true
+  has_many_attached :images do |attachable|
+    attachable.variant :thumb, resize: '100x100'
+    attachable.variant :medium, resize: '300x300', monochrome: true
   end
 
   has_many :article_categories
@@ -27,7 +27,7 @@ class Article < ApplicationRecord
   }
 
   def self.translate_status_key
-    statuses.keys.map do |key| I18n.t("article.activerecord.attributes.#{key}") end
+    statuses.keys.map { |key| I18n.t("article.activerecord.attributes.#{key}") }
   end
 
   scope :by_status, ->(status) { where(status: status) if status.present? }

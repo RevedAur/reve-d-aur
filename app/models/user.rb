@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -5,7 +7,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :birth_date, :phone_number
   validates :phone_number, length: { in: 6..15 }
-  validates_format_of :phone_number, with:  /\d[0-9]\)*\z/ , :message => "Seul le format 0102030405 est autorisé"
+  validates_format_of :phone_number, with: /\d[0-9]\)*\z/, message: 'Seul le format 0102030405 est autorisé'
 
   enum level: { user: 0, influencer: 1 }
 

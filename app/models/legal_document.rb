@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LegalDocument < ApplicationRecord
   has_rich_text :content
 
@@ -6,7 +8,7 @@ class LegalDocument < ApplicationRecord
 
   enum nature: {
     cgv: 0,
-    cgu: 1,
+    cgu: 1
   }
 
   validate :online_date
@@ -30,7 +32,7 @@ class LegalDocument < ApplicationRecord
     return unless online
     return if online_at.present?
 
-    errors.add(:online_at, "Une date de mise en ligne doit être renseignée")
+    errors.add(:online_at, 'Une date de mise en ligne doit être renseignée')
   end
 
   def online_date

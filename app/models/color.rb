@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Color < ApplicationRecord
   enum name: {
     noir: 0,

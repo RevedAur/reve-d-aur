@@ -24,9 +24,13 @@ Size.names.each_key { |size| Size.create!(name: size) }
 
 Color.names.each_key { |color| Color.create!(name: color) }
 
+ClothingModel.create!(name: 'clothes')
+ClothingModel.create!(name: 'accessory')
+
 10.times do |i|
   Category.create!(
-    name: "categorie#{i}"
+    name: "categorie#{i}",
+    clothing_model: ClothingModel.all.sample
   )
 end
 
@@ -38,8 +42,8 @@ end
     price: rand(1..100),
     delivery_price: rand(1..100),
     status: Article.statuses.keys.sample,
-    categories: Category.order("RANDOM()").limit(rand(Category.count)),
-    colors: Color.order("RANDOM()").limit(rand(Color.count))
+    category: Category.all.sample,
+    colors: Color.order("RANDOM()").limit(rand(Color.count)),
     sizes: Size.order("RANDOM()").limit(rand(Size.count))
   )
 end

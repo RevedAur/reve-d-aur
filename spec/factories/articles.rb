@@ -8,5 +8,7 @@ FactoryBot.define do
     price { 1000 }
     delivery_price { 1000 }
     status { Article.statuses.keys.sample }
+
+    category
   end
 end

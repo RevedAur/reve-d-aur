@@ -1,0 +1,48 @@
+<div class='none' id='1'>
+  <div>
+    Nouveauté vêtements
+  </div>
+  <div>
+    Nouveauté accessoires
+  </div>
+</div>
+
+<div class='none' id='2'>
+  <% @clothes.each do |category| %>
+    <div>
+      <%= category.name %>
+    </div>
+  <% end %>
+</div>
+
+<div class='none' id='3'>
+  <% @accessory.each do |category| %>
+    <div>
+      <%= category.name %>
+    </div>
+  <% end %>
+</div>
+
+<div class='none' id='4'>
+  <div>
+    Texte test4
+  </div>
+  <div>
+    Texte test
+  </div>
+  <div>
+    Texte test
+  </div>
+</div>
+
+<div class='none' id='5'>
+  <div>
+    Texte test5
+  </div>
+  <div>
+    Texte test
+  </div>
+  <div>
+    Texte test
+  </div>
+</div>

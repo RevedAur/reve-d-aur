@@ -27,7 +27,6 @@ module Admin
     def show
       @article_colors = Color.where(id: @article.colors.select(:color_id))
       @article_sizes = Size.where(id: @article.sizes.select(:size_id))
-      @article_categories = Category.where(id: @article.categories.select(:category_id))
     end
 
     def edit; end
@@ -50,7 +49,7 @@ module Admin
 
     def article_params
       params.require(:article)
-            .permit(:title, :reference, :description, :status, :price, :delivery_price, category_ids: [], color_ids: [], size_ids: [], images: [])
+            .permit(:title, :reference, :description, :status, :price, :delivery_price, :category_id, color_ids: [], size_ids: [], images: [])
     end
 
     def set_article

@@ -1,4 +1,9 @@
 <%= form_with model: @category, url: admin_category_path do |f| %>
+  <div class="field">
+    <%= f.label :clothing_model_id %>
+    <%= f.collection_select :clothing_model_id, ClothingModel.order(:name), :id, :name, value: @category.clothing_model %>
+  </div>
+
   <%= f.label :name %>
   <%= f.text_field :name, value: @category.name %>
 

@@ -1,22 +1,27 @@
 <div class='vertical-centered navbar'>
   <div>
-    <%= image_tag '/images/logo.png', size: '330x230' %>
+    <%= link_to root_path do %>
+      <%= image_tag '/images/logo.png', size: '330x230' %>
+    <% end %>
   </div>
   
-  <div class='space-between-row w-100'>
-    <div>
+  <div class='space-between-row w-100' data-controller="navbar">
+    <div nav-element='1'>
       <%= link_to 'Nouveautés', account_profiles_path %>
+      <div class='navbar-flyout', id='nav'>
+        <%= render 'layouts/navbar/dropdown'%>
+      </div>
     </div>
-    <div>
+    <div nav-element='2'>
     <%= link_to 'Vêtements', account_profiles_path %>
     </div>
-    <div>
+    <div nav-element='3'>
     <%= link_to 'Accessoires', account_profiles_path %>
     </div>
-    <div>
+    <div nav-element='4'>
     <%= link_to 'Promo', account_profiles_path %>
     </div>
-    <div>
+    <div nav-element='5'>
     <%= link_to 'Solde', account_profiles_path %>
     </div>
     <div>
@@ -30,3 +35,5 @@
     </div>
   </div>
 </div>
+
+

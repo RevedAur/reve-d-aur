@@ -8,8 +8,9 @@ class Article < ApplicationRecord
     attachable.variant :medium, resize: '300x300', monochrome: true
   end
 
-  has_many :article_categories
-  has_many :categories, through: :article_categories
+  belongs_to :category
+  has_one :clothing_model, through: :category
+
   has_many :article_sizes
   has_many :sizes, through: :article_sizes
   has_many :article_colors

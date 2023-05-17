@@ -8,11 +8,10 @@
   Prix : <%= @article.price %>
 </div>
 
-<% @article.categories.each do |category| %>
-  <div>
-    <%= category.name %>
-  </div>
-<% end %>
+<div>
+  <%= @article.category.name %>
+</div>
+
 <div>
   <% (0...@article.images.count).each do |image| %>
     <%= image_tag(@article.images[image].variant(:thumb)) %>
@@ -38,14 +37,6 @@
         <% end %>
       </div>
       <br>
-    <% end %>
-  </div>
-
-  <div>
-    <% @article_categories.each do |category| %>
-      <div>
-        <%= button_to category.name, admin_article_category_path(category, article: @article), method: :delete %>
-      </div>
     <% end %>
   </div>
 

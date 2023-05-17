@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-  has_many :article_categories, class_name: 'ArticleCategory'
-  has_many :articles, through: :article_categories, class_name: 'Article'
+  belongs_to :clothing_model
+
+  has_many :articles
+
+  validates :name, presence: true
 end

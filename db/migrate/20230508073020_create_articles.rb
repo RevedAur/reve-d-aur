@@ -9,6 +9,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.integer :delivery_price, null: false
       t.integer :status, default: 0, null: false
 
+      t.belongs_to :category, null: false, foreign_key: true, type: :uuid
+
       t.timestamps
     end
   end

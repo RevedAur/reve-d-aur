@@ -15,8 +15,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :category_ids %>
-    <%= f.collection_select :category_ids, Category.all, :id, :name, {}, multiple: true %>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name, value: @article.category %>
   </div>
 
   <div class="field">

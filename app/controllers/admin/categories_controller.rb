@@ -19,7 +19,7 @@ module Admin
         flash[:notice] = 'La catégorie a été créé avec succès'
         redirect_to admin_categories_path
       else
-        flash.now[:error] = 'Un problème est survenu'
+        flash.now[:alert] = 'Un problème est survenu'
         render :new, status: :unprocessable_entity
       end
     end
@@ -35,7 +35,7 @@ module Admin
         flash[:notice] = 'La catégorie a été modifié avec succès'
         redirect_to admin_categories_path
       else
-        flash.now[:error] = 'Un problème est survenu'
+        flash.now[:alert] = 'Un problème est survenu'
         render :edit, status: :unprocessable_entity
       end
     end
@@ -45,7 +45,7 @@ module Admin
     private
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :clothing_model_id)
     end
 
     def set_category

@@ -1,0 +1,13 @@
+fr:
+  contact:
+    support: "Support"
+    description: "Si vous avez des problèmes avec le site, contactez-nous par mail: contact@gmail.com"
+    new:
+      title: "Formulaire de contact"
+      description: "Utilisez ce formulaire pour contacter le support de rêves d'Aur"
+      message_placeholder: "Minimum 25 caractères"
+    form:
+      empty_email: "L'email doit être renseigné"
+      invalid_email: "L'email est invalide"
+      too-short_message: "Votre message est trop court"
+      success: "Votre message a bien été envoyé"

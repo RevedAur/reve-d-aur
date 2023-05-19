@@ -1,0 +1,13 @@
+en:
+  contact:
+    support: "Support"
+    description: "If you have any issue, please contact us on contact@gmail.com"
+    new:
+      title: "Contact form"
+      description: "Use this form to contact rêves d'Aur support"
+      message_placeholder: "25 caracters minimum"
+    form:
+      empty_email: "Email must be filled"
+      invalid_email: "Email is invalid"
+      too-short_message: "Too short message"
+      success: "Message successfully sent"

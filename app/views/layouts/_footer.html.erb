@@ -1,6 +1,7 @@
 <div class="copyright-footer">
     <div class='cp-text'>
-    © Copyright 2023 Rêve d'Aur. Tout droit réservé. 
-      <%= link_to 'Documents légaux', legal_documents_path %>
+    © Copyright 2023 Rêve d'Aur. <%= t('footer.all-right-reserved') %>. 
+      <%= link_to t('footer.legal-document'), legal_documents_path %>
+      <%= link_to t('footer.contact'), contact_index_path %>
     </div>
 </div>

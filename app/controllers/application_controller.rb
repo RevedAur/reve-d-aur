@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_navbar
-    @clothes = ClothingModel.find_by(name: 'clothes').categories
-    @accessory = ClothingModel.find_by(name: 'accessory').categories
+    @clothes = ClothingModel.find_by(name: 'clothing')&.categories
+    @accessory = ClothingModel.find_by(name: 'accessory')&.categories
   end
 end

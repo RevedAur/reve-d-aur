@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+  <div>
+    <%= link_to user.email, admin_user_management_path(user) %>
+    <%= button_to 'Supprimer', admin_user_management_path(user), method: :delete %>
+  </div>
+<% end %>

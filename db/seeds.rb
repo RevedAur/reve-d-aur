@@ -24,7 +24,7 @@ Size.names.each_key { |size| Size.create!(name: size) }
 
 Color.names.each_key { |color| Color.create!(name: color) }
 
-ClothingModel.create!(name: 'clothes')
+ClothingModel.create!(name: 'clothing')
 ClothingModel.create!(name: 'accessory')
 
 10.times do |i|

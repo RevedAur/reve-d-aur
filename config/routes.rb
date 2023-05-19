@@ -17,8 +17,10 @@ Rails.application.routes.draw do
     resources :article_colors, only: %i[destroy]
     resources :article_categories, only: %i[destroy]
     resources :categories
+    resources :user_managements, only: %i[index show destroy]
     resources :legal_documents
   end
 
   resources :legal_documents, only: %i[index show]
+  resources :contact, only: %i[index create]
 end

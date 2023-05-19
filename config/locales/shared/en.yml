@@ -1,0 +1,6 @@
+en:
+  shared:
+    error: "Oups, something went wrong."
+    flash-error: "Oups, something went wrong : %{error}"
+    show-link: "Go to page"
+    back-to-index: "Go back to Index"

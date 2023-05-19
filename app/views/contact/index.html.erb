@@ -1,0 +1,17 @@
+<h1> <%= t('contact.new.title') %></h1>
+
+<p> <%= t('contact.new.description') %> </p>
+
+<%= form_with url: contact_index_path  do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true, value: current_user&.email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, required: true, placeholder: t('contact.new.message_placeholder') %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

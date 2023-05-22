@@ -1,7 +1,3 @@
+@import 'article/color.scss';
 @import 'auth/session.scss';
-@import 'shared/container.scss';
-@import 'shared/position.scss';
-@import 'shared/border.scss';
-@import 'shared/flash.scss';
-@import 'footer.scss';
-@import 'navbar.scss';
+@import 'shared/*';

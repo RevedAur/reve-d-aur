@@ -24,7 +24,7 @@ export default class extends Controller {
     window.addEventListener("mouseover", function (e) {
       const body = document.getElementsByTagName('body')[0];
       e.stopPropagation();
-      if (e.target == body) {
+      if (e.target == body && document.querySelector('#nav .show')) {
         mainDropdown.classList.remove("show");
         document.querySelector('#nav .show').classList.remove("show");
       }

@@ -35,7 +35,7 @@ ClothingModel.create!(name: 'accessory')
 end
 
 10.times do |_i|
-  Article.create!(
+  art = Article.create!(
     title: FFaker::Book.title,
     reference: FFaker::PhoneNumber.imei,
     description: FFaker::Book.description,
@@ -45,5 +45,9 @@ end
     category: Category.all.sample,
     colors: Color.order("RANDOM()").limit(rand(Color.count)),
     sizes: Size.order("RANDOM()").limit(rand(Size.count))
+  )
+  art.image.attach(
+    io:  File.open(File.join(Rails.root,'app/assets/images/logo.png')),
+    filename: 'logo.png'
   )
 end

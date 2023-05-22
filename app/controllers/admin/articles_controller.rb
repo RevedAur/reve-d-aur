@@ -49,7 +49,7 @@ module Admin
 
     def article_params
       params.require(:article)
-            .permit(:title, :reference, :description, :status, :price, :delivery_price, :category_id, color_ids: [], size_ids: [], images: [])
+            .permit(:title, :reference, :description, :status, :price, :delivery_price, :category_id, :image, color_ids: [], size_ids: [])
     end
 
     def set_article

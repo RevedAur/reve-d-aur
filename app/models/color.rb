@@ -2,13 +2,13 @@
 
 class Color < ApplicationRecord
   enum name: {
-    noir: 0,
-    blanc: 1,
-    rouge: 2,
-    jaune: 3,
-    bleu: 4,
-    vert: 5,
-    marron: 6
+    black: 0,
+    white: 1,
+    red: 2,
+    yellow: 3,
+    blue: 4,
+    green: 5,
+    brown: 6
   }
 
   validates :name, presence: true

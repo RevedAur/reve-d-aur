@@ -13,9 +13,7 @@
 </div>
 
 <div>
-  <% (0...@article.images.count).each do |image| %>
-    <%= image_tag(@article.images[image].variant(:thumb)) %>
-  <% end %>
+  <%= image_tag(@article.image.variant(:thumb)) %>
   <br>
 </div>
 

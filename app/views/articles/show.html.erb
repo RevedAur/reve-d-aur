@@ -1,0 +1,22 @@
+<div class='row-container m-5'>
+  <div>
+    <%= image_tag(@article.image.variant(:big)) %>
+  </div>
+  <div>
+    <div>
+      Titre : <%= @article.title %>
+    </div>
+    <div>
+      Reference : <%= @article.reference %>
+    </div>
+    <div>
+      Prix : <%= @article.price %> €
+    </div>
+    <% @article.colors.each do |color| %>
+    <span class="<%= color.name %>-dot"></span>
+    <% end %>
+    <div>
+      <%= button_to 'Ajouter au panier', account_cart_path %>
+    </div>
+  </div>
+</div>

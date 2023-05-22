@@ -45,9 +45,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
+    <%= f.label :image %>
+    <%= f.file_field :image, id:'preview' %>
   </div>
+  <output id='previewed-image'></output>
 
   <div class="actions">
     <%= f.submit "Valider" %>

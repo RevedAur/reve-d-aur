@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize: '100x100'
     attachable.variant :medium, resize: '300x300', monochrome: true
-    attachable.variant :big, resize: '600x600'
+    attachable.variant :big, resize: "600x600"
   end
 
   belongs_to :category

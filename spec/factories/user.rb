@@ -11,7 +11,7 @@ FactoryBot.define do
     deleted_by_admin { false }
     first_name { FFaker::Name.first_name }
     last_name { FFaker::Name.last_name }
-    pseudo { 'pseudo' }
-    phone_number1 { FFaker::PhoneNumber.phone_number }
+    phone_number { FFaker::PhoneNumberFR.phone_number }
+    birth_date { FFaker::Time.date }
   end
 end

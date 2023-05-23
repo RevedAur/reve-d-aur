@@ -17,13 +17,13 @@ RSpec.describe LegalDocument, type: :model do
     it 'when_online' do
       expect { create(:legal_document, online: true, online_at: nil) }
         .to raise_error(ActiveRecord::RecordInvalid,
-                        'Validation failed: Online at Une date de mise en ligne doit être renseignée')
+                        'La validation a échoué : Online at Une date de mise en ligne doit être renseignée')
     end
 
     it 'online_date' do
       expect { create(:legal_document, online_at: DateTime.yesterday) }
         .to raise_error(ActiveRecord::RecordInvalid,
-                        "Validation failed: Online at La date de mise en ligne doit être supérieur à aujourd'hui")
+                        "La validation a échoué : Online at La date de mise en ligne doit être supérieur à aujourd'hui")
     end
 
     describe 'nature_uniqueness' do
@@ -32,7 +32,7 @@ RSpec.describe LegalDocument, type: :model do
       it 'raises if we set online a second CGU' do
         expect { create(:legal_document, nature: :cgu, online: true, online_at: DateTime.now) }
           .to raise_error(ActiveRecord::RecordInvalid,
-                          'Validation failed: Nature Il ne peut y avoir 2 documents de même nature en ligne')
+                          'La validation a échoué : Nature Il ne peut y avoir 2 documents de même nature en ligne')
       end
 
       it 'raises not when we update online LegalDocument' do

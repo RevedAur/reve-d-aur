@@ -3,5 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ArticleSize, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:article_size) { build(:article_size) }
+
+  it { expect(article_size).to be_valid }
 end

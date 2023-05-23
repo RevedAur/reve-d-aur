@@ -16,7 +16,7 @@
     <span class="<%= color.name %>-dot"></span>
     <% end %>
     <div>
-      <%= button_to 'Ajouter au panier', account_cart_path %>
+      <%= button_to 'Ajouter au panier', account_cart_path(article_id: @article.id), method: :patch %>
     </div>
   </div>
 </div>

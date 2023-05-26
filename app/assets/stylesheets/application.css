@@ -18,4 +18,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(/assets/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  margin: 0;
 }

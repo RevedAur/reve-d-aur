@@ -42,6 +42,7 @@ gem 'bootsnap', require: false
 
 # Use Sass to process CSS
 gem 'sassc-rails'
+gem "font-awesome-sass"
 
 # SUPPORT
 gem 'aws-sdk-s3', require: false

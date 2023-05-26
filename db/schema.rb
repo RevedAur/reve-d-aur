@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_073321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,12 +85,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
   end
 
   create_table "cart_articles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "article_number", default: 1, null: false
     t.uuid "cart_id", null: false
     t.uuid "article_id", null: false
+    t.uuid "color_id", null: false
+    t.uuid "size_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_cart_articles_on_article_id"
     t.index ["cart_id"], name: "index_cart_articles_on_cart_id"
+    t.index ["color_id"], name: "index_cart_articles_on_color_id"
+    t.index ["size_id"], name: "index_cart_articles_on_size_id"
   end
 
   create_table "carts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -121,7 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
   end
 
   create_table "legal_document_approvals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "approved_at", default: "2023-05-22 12:41:26", null: false
+    t.datetime "approved_at", default: "2023-05-25 11:48:17", null: false
     t.uuid "user_id", null: false
     t.uuid "legal_document_id", null: false
     t.datetime "created_at", null: false
@@ -221,6 +226,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_092457) do
   add_foreign_key "articles", "categories"
   add_foreign_key "cart_articles", "articles"
   add_foreign_key "cart_articles", "carts"
+  add_foreign_key "cart_articles", "colors"
+  add_foreign_key "cart_articles", "sizes"
   add_foreign_key "carts", "users"
   add_foreign_key "categories", "clothing_models"
   add_foreign_key "legal_document_approvals", "legal_documents"

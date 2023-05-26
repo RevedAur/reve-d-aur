@@ -4,9 +4,9 @@ class Article < ApplicationRecord
   has_rich_text :description
 
   has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize: '100x100'
-    attachable.variant :medium, resize: '300x300', monochrome: true
-    attachable.variant :big, resize: "600x600"
+    attachable.variant :thumb, resize: '100x120!'
+    attachable.variant :medium, resize: '300x300!', monochrome: true
+    attachable.variant :big, resize: "400x500!"
   end
 
   belongs_to :category

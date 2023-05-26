@@ -6,12 +6,22 @@ module Account
       @cart = current_user.cart
     end
 
-    def update
-      article = Article.find(params[:article_id])
-      CartArticle.create!(article: article, cart: current_user.cart)
+    def create
+      cart_article = AddArticle.new(cart_params, current_user).perform
 
-      flash[:notice] = 'Article ajouté au panier'
-      redirect_back(fallback_location: root_path)
+      if cart_article.save
+        flash[:notice] = 'Article ajouté au panier'
+        redirect_back(fallback_location: root_path)
+      else
+        flash[:alert] = cart_article.errors.full_messages
+        redirect_back(fallback_location: root_path)
+      end
+    end
+
+    private
+
+    def cart_params
+      params.permit(:article_id, :size_id, :article_number, color_id: [])
     end
   end
 end

@@ -9,9 +9,16 @@
 .w-100 {
   width: 100%;
 }
+.w-90 {
+  width: 90%;
+}
 
 .w-60 {
   width: 60%;
+}
+
+.h-500 {
+  height: 500px;
 }
 
 .m-5 {
@@ -23,6 +30,10 @@
   margin-left: 35px;
 }
 
+.ml-150 {
+  margin-left: 150px;
+}
+
 .mb-150 {
   margin-bottom: 150px;
 }
@@ -31,6 +42,22 @@
   margin-bottom: 75px;
 }
 
+.p-20 {
+  padding: 20px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
 .pt-10 {
   padding-top: 10px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.pl-20 {
+  padding-left: 20px;
 }

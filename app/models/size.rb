@@ -2,12 +2,12 @@
 
 class Size < ApplicationRecord
   enum name: {
-    xxs: 0,
-    xs: 1,
-    s: 2,
-    m: 3,
-    l: 4,
-    xl: 5,
-    xxl: 6
+    XXS: 0,
+    XS: 1,
+    S: 2,
+    M: 3,
+    L: 4,
+    XL: 5,
+    XXL: 6
   }
 end

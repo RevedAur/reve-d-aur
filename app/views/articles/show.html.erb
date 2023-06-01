@@ -1,22 +1,68 @@
-<div class='row-container m-5'>
-  <div>
-    <%= image_tag(@article.image.variant(:big)) %>
+<div class='row-container pt-50 m-5 w-90'>
+  <div class='row-container ml-150'>
+    <%= render 'left_images' %>
   </div>
-  <div>
-    <div>
-      Titre : <%= @article.title %>
+  <div class='ml-35 w-100'>
+    <div class='bold xlarge brown'>
+      <%= @article.title %>
     </div>
-    <div>
-      Reference : <%= @article.reference %>
+    <div class='pl-20'>
+      <%= @article.reference %>
     </div>
-    <div>
-      Prix : <%= @article.price %> €
+    <br>
+    <div class='bold xlarge brown'>
+      <%= @article.price %> € <small>TTC</small>
     </div>
-    <% @article.colors.each do |color| %>
-    <span class="<%= color.name %>-dot"></span>
+    <br>
+
+    <%= form_with url: account_cart_path do |f| %>
+      <%= f.hidden_field :article_id, value: @article.id %>
+
+      <div class='bold xlarge brown'>
+        Taille
+        <%= f.collection_select :size_id, @article.sizes.select(&:name), :id, :name, {include_blank: false}, {class: 'minimal'} %>
+      </div>
+      <br>
+      <br>
+
+      <div class='row-container' data-controller='color'>
+        <%= f.collection_check_boxes :color_id, @article.colors, :id, :name, include_blank: false, include_hidden: false  do |checkbox| %>
+          <div class='pl-5'>
+            <%= checkbox.check_box class:"#{checkbox.text}-dot"%>
+          </div>
+        <% end %>
+      </div>
+      <br>
+
+      <div>
+        <button id="minus" class="number-button">-</button>&nbsp;&nbsp;
+          <%= f.number_field :article_number, value: 1, class:'number-input' %>&nbsp;&nbsp;
+        <button id="plus" class="number-button">+</button>
+        <%= f.submit 'Ajouter au panier', class:'add-cart'%>
+        <i class="fa-regular fa-heart fa-xl"></i>
+        <i class="fa-solid fa-heart fa-xl"></i>
+      </div>
+      <br><br><br>
+
+      <div>
+        Guide des tailles
+      </div>
+      <br><br><br>
+
+      <div class='description-box p-20'>
+        <div class='bold'>DESCRIPTION</div>
+        <div>
+          <%= @article.description %>
+        </div>
+        <div class='bold pt-50'>DETAIL DU PRODUIT</div>
+        <div>
+          <%= @article.description %>
+        </div>
+        <div class='bold pt-50'>COMMENTAIRE</div>
+        <div>
+          <%= @article.description %>
+        </div>
+      </div>
     <% end %>
-    <div>
-      <%= button_to 'Ajouter au panier', account_cart_path %>
-    </div>
   </div>
 </div>

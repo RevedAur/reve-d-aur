@@ -51,3 +51,15 @@
 .centered-element {
   text-align: center;
 }
+
+.flex-basis-50 {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+}
+
+.flex-basis-60 {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 60%;
+}

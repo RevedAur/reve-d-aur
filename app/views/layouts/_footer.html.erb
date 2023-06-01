@@ -1,7 +1,26 @@
 <div class="copyright-footer">
+  <div class='w-100 footer-bg'>
+    <br>
+    <div class='space-around'>
+      <div>
+        <div class='bold'>Aide et contact</div>
+        <div>Questions fréquentes</div>
+        <div><%= link_to t('footer.contact'), contact_index_path %></div>
+      </div>
+      <div></div>
+      <div>
+        <div>Moyens de paiement</div>
+        <div>MasterCard Visa etc ...</div>
+      </div>
+      <div></div>
+      <div>Nos services</div>
+    </div>
+    <br>
+  </div>
+  <div class='w-100 bg-grey'>
     <div class='cp-text'>
     © Copyright 2023 Rêve d'Aur. <%= t('footer.all-right-reserved') %>. 
       <%= link_to t('footer.legal-document'), legal_documents_path %>
-      <%= link_to t('footer.contact'), contact_index_path %>
     </div>
+  </div>
 </div>

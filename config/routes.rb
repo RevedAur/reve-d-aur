@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :legal_document_approvals, only: %i[new create]
     resource :profiles, only: %i[show edit update destroy]
     resource :professionals, only: %i[new create edit update]
-    resource :cart, only: %i[show update destroy]
+    resource :cart, only: %i[show create destroy]
   end
 
   namespace :admin do
